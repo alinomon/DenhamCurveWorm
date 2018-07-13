@@ -41,7 +41,11 @@ EC Stoner Building, University of Leeds, Leeds. LS2 9JT. UK.
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
 
-    Copyright (C) 2018 Jack E. Denham, Thomas Ranner, Felix Salfelder
+    Copyright (C) 2017        Mark Bromley
+    Copyright (C) 2017 - 2018 Jack E. Denham
+    Copyright (C) 2016        Robert I. Holbrook
+    Copyright (C) 2015 - 2017 Thomas Ranner
+    Copyright (C) 2017 - 2018 Felix Salfelder
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
