@@ -15,7 +15,19 @@ Suitesparse
 
   ./worm-model ../data/model-parameters [options]
 
-     Run simluation with parameters from `model-parameters` file. Extra options can be used which overwrite model-parameters using `--parameter=new-value`.
+     Run simluation with parameters from `model-parameters`
+     file. Extra options can be used which overwrite model-parameters
+     using `--parameter=new-value`. Outputs are:
+
+     * worm_*.vtu all solution variables output in a format readable by Paraview
+     * Activation.txt ??
+     * Beta.txt ??
+     * Kappa.txt ??
+     * energy.txt ??
+     * feedback.txt ??
+     * pointx ??
+     * pointy ??
+TODO jack - add descriptions of these files
 
 ## Authors
 
@@ -64,7 +76,7 @@ Clone and build repository:
 git clone https://bitbucket.org/leedswormlab/curve-worm-royal-society-paper.git curve-worm
 cd curve-worm
 mkdir build && cd build
-cmake ..
+cmake -D CMAKE_BUILD_TYPE=Release ..
 make
 ```
 
@@ -75,7 +87,8 @@ ctest
 
 ### Mac steps (untested)
 
-###### TODO: Should use MacPorts or Brew ideally (instead of both)...
+Install dependencies
+
 1. git clone <<repository URL>>
 2. brew install cmake
 3. chmod -R 777 python folder (TODO: Hack - this shouldn't be necessary)

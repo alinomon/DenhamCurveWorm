@@ -6,7 +6,7 @@ mesh.N:128
 mesh.a:0
 mesh.b:1
 
-io.prefix:. #output-fixed-K
+io.prefix:.
 io.timestep:5.0e-3
 io.transient:30.0
 io.innerwrite:1
@@ -14,9 +14,9 @@ io.innerwrite:1
 model.constraint:measure
 model.problem:driven
 
-model.e:0.044645  #1.501339   #0.0207 #20.1062
+model.e:1
 model.mu:0
-model.K:1.7914      #37.167548  #40     #1.57
+model.K:39
 model.gamma:1
 model.I2.eps:1e-4
 
@@ -29,25 +29,25 @@ model.beta.omega:1.0
 # READ MODEL
 model.beta.freq:0.5
 model.beta.amp:1.0
-model.beta.wave:0.7    
-model.torque.a:100.0  # 30.0 #15.0
-model.torque.b:10.0   #  3.0 # 1.5
+model.beta.wave:0.7
+model.torque.a:100.0
+model.torque.b:10.0
 
 model.read.propFrom:0.0
 model.read.propTo:0.5
 model.read.propStrength:1.0
 
 # OneThresholdModel
-model.threshold.thd_on:7      #  7
-model.threshold.thd_off:-7    # -7
+model.threshold.thd_on:7
+model.threshold.thd_off:-7
 
 # ThresholdModel
-model.threshold.thd_0:-3.0      		# -2
-model.threshold.thd_1:3.0       		#  2
-model.threshold.thv_00:-0.75  		# -4.0      # -1
-model.threshold.thv_11:-1.0  		# -2.5      #  1
-model.threshold.thv_01:-3.0 	   	# -3 (-9000)
-model.threshold.thv_10:3.0     		#  4 ( 9000)
+model.threshold.thd_0:-3.0
+model.threshold.thd_1:3.0
+model.threshold.thv_00:-0.75
+model.threshold.thv_11:-1.0
+model.threshold.thv_01:-3.0
+model.threshold.thv_10:3.0
 model.threshold.reset:1
 
 # YoungMod Model

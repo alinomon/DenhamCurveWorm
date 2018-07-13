@@ -54,9 +54,7 @@ include_directories("${PROJECT_BINARY_DIR}")
 # symlink scripts
 file( GLOB SCRIPTS "${CMAKE_CURRENT_SOURCE_DIR}/scripts/*.sh" )
 foreach( script ${SCRIPTS} )
-  message(STATUS ${script})
   get_filename_component(base_name ${script} NAME)
-  message(STATUS ${base_name})
 
   execute_process(COMMAND ${CMAKE_COMMAND} -E create_symlink
     ${script} ${CMAKE_CURRENT_BINARY_DIR}/${base_name})
@@ -70,6 +68,10 @@ add_test( "umfpack_test" umfpack-simple )
 
 add_test( "worm-model_end2end"
   ./worm-model ../data/model-parameters )
-# todo add comparison test when confirmed what we want
-# add_test( "worm-model_comparison"
-#   COMMAND ${CMAKE_COMMAND} -E compare_files ? ? )
+
+file( GLOB test-outputs "${CMAKE_CURRENT_SOURCE_DIR}/tests-data/*" )
+foreach( test-output ${test-outputs} )
+  get_filename_component( base_name ${test-output} NAME )
+  add_test( NAME "worm-model_comparison_${base_name}"
+  COMMAND ${CMAKE_COMMAND} -E compare_files ${test-output} ${CMAKE_CURRENT_BINARY_DIR}/${base_name} )
+endforeach()
