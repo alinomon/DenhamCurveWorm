@@ -69,9 +69,35 @@ add_test( "umfpack_test" umfpack-simple )
 add_test( "worm-model_end2end"
   ./worm-model ../data/model-parameters )
 
+find_program( PYTHON python )
+
+if( PYTHON )
+  message( STATUS "Python found: ${PYTHON}")
+  execute_process( COMMAND ${PYTHON} -c "import numpy"
+    RESULT_VARIABLE _find_numpy_test )
+
+  if( NOT _find_numpy_test )
+    set( NUMPY_FOUND True )
+  else()
+    set( NUMPY_FOUND False )
+  endif()
+
+if( NUMPY_FOUND )
+  message( STATUS "Numpy found" )
 file( GLOB test-outputs "${CMAKE_CURRENT_SOURCE_DIR}/tests-data/*" )
 foreach( test-output ${test-outputs} )
   get_filename_component( base_name ${test-output} NAME )
   add_test( NAME "worm-model_comparison_${base_name}"
-  COMMAND ${CMAKE_COMMAND} -E compare_files ${test-output} ${CMAKE_CURRENT_BINARY_DIR}/${base_name} )
+  COMMAND ${PYTHON} -c
+  "\
+import numpy; \
+reference=numpy.loadtxt(\"${test-output}\"); \
+new=numpy.loadtxt(\"${CMAKE_CURRENT_BINARY_DIR}/${base_name}\"); \
+numpy.testing.assert_almost_equal( reference, new )" )
 endforeach()
+else()
+  message( WARNING "Numpy not found: no comparison tests run ${NUMPY_FOUND}")
+endif()
+else()
+  message( WARNING "Python not found: no comparison tests run")
+endif()

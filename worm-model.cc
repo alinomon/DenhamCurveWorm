@@ -92,8 +92,8 @@ void algorithm( ConfigParameters& parameters, const Mesh &mesh)
 
     const double e = scheme.energy();
     const auto p = scheme.constraintError();
-    file << timeProvider.time() << "," <<  e << ","
-   << p.first << "," << p.second << std::endl;
+    file << timeProvider.time() << " " <<  e << " "
+   << p.first << " " << p.second << std::endl;
 
    //model.printSwitch();
    scheme.computeCurvature(); 			//Jack
