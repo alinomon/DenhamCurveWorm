@@ -13,6 +13,7 @@ pipelines:
           - apt-get install -y cmake
           - apt-get install -y libatlas-base-dev
           - apt-get install -y libsuitesparse-dev
+          - apt-get install -y python-numpy # for testing only
           - mkdir build && cd build
           - cmake ..
           - make all
