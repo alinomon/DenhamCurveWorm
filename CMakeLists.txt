@@ -93,11 +93,65 @@ foreach( test-output ${test-outputs} )
 import numpy; \
 reference=numpy.loadtxt(\"${test-output}\"); \
 new=numpy.loadtxt(\"${CMAKE_CURRENT_BINARY_DIR}/${base_name}\"); \
-numpy.testing.assert_almost_equal( reference, new )" )
+numpy.testing.assert_almost_equal( reference, new, 1 )" )
 endforeach()
+
+foreach( test-output ${test-outputs} )
+  get_filename_component( base_name ${test-output} NAME )
+  add_test( NAME "worm-model_comparison_${base_name}"
+  COMMAND ${PYTHON} -c
+  "\
+import numpy; \
+reference=numpy.loadtxt(\"${test-output}\"); \
+new=numpy.loadtxt(\"${CMAKE_CURRENT_BINARY_DIR}/${base_name}\"); \
+numpy.testing.assert_almost_equal( reference, new, 2 )" )
+endforeach()
+foreach( test-output ${test-outputs} )
+  get_filename_component( base_name ${test-output} NAME )
+  add_test( NAME "worm-model_comparison_${base_name}"
+  COMMAND ${PYTHON} -c
+  "\
+import numpy; \
+reference=numpy.loadtxt(\"${test-output}\"); \
+new=numpy.loadtxt(\"${CMAKE_CURRENT_BINARY_DIR}/${base_name}\"); \
+numpy.testing.assert_almost_equal( reference, new, 3 )" )
+endforeach()
+foreach( test-output ${test-outputs} )
+  get_filename_component( base_name ${test-output} NAME )
+  add_test( NAME "worm-model_comparison_${base_name}"
+  COMMAND ${PYTHON} -c
+  "\
+import numpy; \
+reference=numpy.loadtxt(\"${test-output}\"); \
+new=numpy.loadtxt(\"${CMAKE_CURRENT_BINARY_DIR}/${base_name}\"); \
+numpy.testing.assert_almost_equal( reference, new, 4 )" )
+endforeach()
+foreach( test-output ${test-outputs} )
+  get_filename_component( base_name ${test-output} NAME )
+  add_test( NAME "worm-model_comparison_${base_name}"
+  COMMAND ${PYTHON} -c
+  "\
+import numpy; \
+reference=numpy.loadtxt(\"${test-output}\"); \
+new=numpy.loadtxt(\"${CMAKE_CURRENT_BINARY_DIR}/${base_name}\"); \
+numpy.testing.assert_almost_equal( reference, new, 5 )" )
+endforeach()
+
+foreach( test-output ${test-outputs} )
+  get_filename_component( base_name ${test-output} NAME )
+  add_test( NAME "worm-model_comparison_${base_name}"
+  COMMAND ${PYTHON} -c
+  "\
+import numpy; \
+reference=numpy.loadtxt(\"${test-output}\"); \
+new=numpy.loadtxt(\"${CMAKE_CURRENT_BINARY_DIR}/${base_name}\"); \
+numpy.testing.assert_almost_equal( reference, new, 6 )" )
+endforeach()
+
 else()
   message( WARNING "Numpy not found: no comparison tests run ${NUMPY_FOUND}")
 endif()
+
 else()
   message( WARNING "Python not found: no comparison tests run")
 endif()
