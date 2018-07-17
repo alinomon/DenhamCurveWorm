@@ -86,17 +86,15 @@ if( NUMPY_FOUND )
   message( STATUS "Numpy found" )
 file( GLOB test-outputs "${CMAKE_CURRENT_SOURCE_DIR}/tests-data/*" )
 
-foreach( d 1 2 3 4 5 6 )
 foreach( test-output ${test-outputs} )
   get_filename_component( base_name ${test-output} NAME )
-  add_test( NAME "worm-model_comparison_${base_name}_${d}"
+  add_test( NAME "worm-model_comparison_${base_name}"
   COMMAND ${PYTHON} -c
   "\
 import numpy; \
 reference=numpy.loadtxt(\"${test-output}\"); \
 new=numpy.loadtxt(\"${CMAKE_CURRENT_BINARY_DIR}/${base_name}\"); \
-numpy.testing.assert_almost_equal( reference, new, ${d} )" )
-endforeach()
+numpy.testing.assert_almost_equal( reference, new, 4 )" )
 endforeach()
 
 else()
