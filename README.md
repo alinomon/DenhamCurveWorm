@@ -2,6 +2,10 @@
 
 Code for running a simluation of a C. elegans integrated neuro-mechanical locomotion model written in `C++`.
 
+If using the mechanical model please cite: Cohen, Netta and Ranner, Thomas (2017), A new computational method for a model of C. elegans biomechanics: Insights into elasticity and locomotion performance.  arXiv e-prints 1702.04988, https://arxiv.org/abs/1702.04988
+
+If using the neuromechanical model please cite: Denham, Jack E. and Ranner, Thomas and Cohen, Netta (2018), Intrinsic and extrinsic modulation of C. elegans locomotion,  bioarxiv e-prints 10.1101/312132,    https://www.biorxiv.org/content/early/2018/05/01/312132
+
 ## Prerequisites
 
 `C++` compiler with support for `C++11` (e.g. GNU C++ Compiler version 4.8.5 or above), `CMake` version 2.8 or above,
@@ -59,6 +63,7 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    
 
 ## Extra details for building prerequisites
 
