@@ -39,7 +39,7 @@ TODO jack - add descriptions of these files
 * Thomas Ranner, T.Ranner at leeds.ac.uk
 * Felix Salfelder, F.Salfelder at leeds.ac.uk
 
-EC Stoner Building, University of Leeds, Leeds. LS2 9JT. UK.
+School of Computing, EC Stoner Building, University of Leeds, Leeds. LS2 9JT. UK.
 
 ## License
 
@@ -66,8 +66,6 @@ This project is licensed under the GNU General Public License v3.0 - see the [LI
     
 
 ## Extra details for building prerequisites
-
-TODO ensure these are correct
 
 ### Ubuntu Steps
 
