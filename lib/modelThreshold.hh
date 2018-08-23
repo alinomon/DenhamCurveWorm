@@ -466,14 +466,14 @@ void printSwitch() const
         	else if( propFeedback[j] > thd_1  ) /**/ { Switch[0][j] = 0;}
         	Switch[1][j] = 1-Switch[0][j];
 	}
+
    }
 
   virtual double beta( const double s ) const
   {
 
 	int S = round(s*(N-1));
-//	std::cout  << S << " tau: " << -b_*tau[S] <<  " , curve: " << a_*scalarCurvature[ S ]  << " , prop: " << propStrength*propFeedback[ S ]  << std::endl;
-	threshold_prop(s);
+//	std::cout  << S << " tau: " << -b_*tau[S] <<  " , curve: " << a_*scalarCurvature[ S ]  << " , prop: " << propStrength*propFeedback[ S ]  << std::endl
 	dtau[S] =  -a_*(Switch[0][S] - Switch[1][S]) - b_*tau[S]; // +ve curvature feedback (due to weird -ve beta to kappa relationship - it's actually inhibitory feedback)
 
 	if(timeToUpdate <= timeProvider().time())

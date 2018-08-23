@@ -102,6 +102,7 @@ void algorithm( ConfigParameters& parameters, const Mesh &mesh)
    model.updateScalarCurvature(); 		//Jack
    model.updatePropFeedback();
    model.threshold_prop();
+
 //std::cout << "============== ONE TIME LOOP COMPLETED ================" << std::endl;
 
     // output important data
